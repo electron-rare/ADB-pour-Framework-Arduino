@@ -44,7 +44,7 @@ La bibliothèque ADB est une implémentation complète du protocole Apple Deskto
 1. Ajoutez la dépendance dans votre `platformio.ini`:
    ```ini
    lib_deps = 
-     electronrare/ADB @ ^1.0.0
+     electronrare/ADB-pour-Framework-Arduino
    ```
 2. Ou installez-la manuellement dans le dossier `lib/` de votre projet
 
@@ -61,8 +61,8 @@ monitor_speed = 115200
 build_flags =
     -D PIO_FRAMEWORK_ARDUINO_ENABLE_CDC
     -D USBCON
-    -D USB_MANUFACTURER="\"L'électron rare\""
-    -D USB_PRODUCT="\"ADB2USB HID\""
+    -D USB_MANUFACTURER="electron_rare"
+    -D USB_PRODUCT="ADB2USB HID"
 ```
 
 #### Configuration exemple pour ESP32 (platformio.ini)
@@ -72,7 +72,7 @@ platform = espressif32
 board = esp32dev
 framework = arduino
 lib_deps = 
-    electronrare/ADB @ ^1.0.0
+    electronrare/ADB-pour-Framework-Arduino
 monitor_speed = 115200
 ```
 
@@ -146,12 +146,6 @@ La bibliothèque est fournie avec plusieurs exemples pratiques pour Arduino IDE 
 ### Remerciements particuliers
 - **Projet TMK** - Pour la documentation et le travail sur la conversion ADB-USB
 - **Apple Developer Archives** - Pour la documentation technique sur le protocole ADB
-- **Communauté r/VintageApple** - Pour le support et les tests
-
-### Testeurs
-- L'équipe de L'électron rare
-- Utilisateurs du forum STM32duino
-- Membres de la communauté RetroComputing
 
 ## Historique des versions
 
@@ -165,7 +159,6 @@ La bibliothèque est fournie avec plusieurs exemples pratiques pour Arduino IDE 
 - Support complet pour Arduino, ESP32, et Teensy
 - Meilleure gestion de l'alimentation
 - Support pour des périphériques ADB plus exotiques
-- Interface graphique de configuration et diagnostic
 
 ## Licence
 
