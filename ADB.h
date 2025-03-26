@@ -26,15 +26,6 @@ namespace ADBProtocol {
     constexpr uint8_t REGISTER(uint8_t reg) { return reg; }
 }
 
-// Pour compatibilité avec le code existant
-#define CMD_TALK         ADBProtocol::CMD_TALK
-#define CMD_LISTEN       ADBProtocol::CMD_LISTEN
-#define CMD_FLUSH        ADBProtocol::CMD_FLUSH
-#define BIT_ERROR        ADBProtocol::BIT_ERROR
-#define POLL_DELAY       ADBProtocol::POLL_DELAY
-#define ADB_ADDRESS(addr) ADBProtocol::ADDRESS(addr)
-#define ADB_REGISTER(reg) ADBProtocol::REGISTER(reg)
-
 /**
  * @brief Structures de données pour les périphériques ADB
  */

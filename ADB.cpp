@@ -117,7 +117,7 @@ uint8_t ADB::readBit() {
     auto time_start = micros();
     while (digitalRead(dataPin) == LOW) {
         if (micros() - time_start > MAX_WAIT)
-            return BIT_ERROR;
+            return ADBProtocol::BIT_ERROR;
     }
     auto low_time = micros() - time_start;
 
@@ -125,7 +125,7 @@ uint8_t ADB::readBit() {
     time_start = micros();
     while (digitalRead(dataPin) == HIGH) {
         if (micros() - time_start > MAX_WAIT)
-            return BIT_ERROR;
+            return ADBProtocol::BIT_ERROR;
     }
     auto high_time = micros() - time_start;
 
@@ -143,7 +143,7 @@ bool ADB::readDataPacket(uint16_t* buffer, uint8_t length) {
     *buffer = 0;
     for (uint8_t i = 0; i < length; i++) {
         uint8_t current_bit = readBit();
-        if (current_bit == BIT_ERROR) {
+        if (current_bit == ADBProtocol::BIT_ERROR) {
             return false;
         }
         *buffer = (*buffer << 1) | current_bit;
@@ -190,7 +190,7 @@ adb_data<adb_kb_modifiers> ADBDevices::keyboardReadModifiers(bool* error) {
     adb_data<adb_kb_modifiers> modifiers = {0};
     
     // Envoi d'une commande Talk au registre 2 du clavier
-    adb.writeCommand(CMD_TALK | ADB_ADDRESS(ADDR_KEYBOARD) | ADB_REGISTER(2));
+    adb.writeCommand(ADBProtocol::CMD_TALK | ADBProtocol::ADDRESS(ADBKey::Address::KEYBOARD) | ADBProtocol::REGISTER(2));
     adb.waitTLT(true);
     
     // Lecture des données et mise à jour du statut d'erreur
@@ -202,7 +202,7 @@ adb_data<adb_kb_keypress> ADBDevices::keyboardReadKeyPress(bool* error) {
     adb_data<adb_kb_keypress> keyPress = {0};
     
     // Envoi d'une commande Talk au registre 0 du clavier
-    adb.writeCommand(CMD_TALK | ADB_ADDRESS(ADDR_KEYBOARD) | ADB_REGISTER(0));
+    adb.writeCommand(ADBProtocol::CMD_TALK | ADBProtocol::ADDRESS(ADBKey::Address::KEYBOARD) | ADBProtocol::REGISTER(0));
     adb.waitTLT(true);
     
     // Lecture des touches pressées et mise à jour du statut d'erreur
@@ -219,7 +219,7 @@ void ADBDevices::keyboardWriteLEDs(bool scroll, bool caps, bool num) {
     modifiers.data.led_num = !num;
 
     // Envoi d'une commande Listen au registre 2 du clavier
-    adb.writeCommand(CMD_LISTEN | ADB_ADDRESS(ADDR_KEYBOARD) | ADB_REGISTER(2));
+    adb.writeCommand(ADBProtocol::CMD_LISTEN | ADBProtocol::ADDRESS(ADBKey::Address::KEYBOARD) | ADBProtocol::REGISTER(2));
     adb.waitTLT(false);
     
     // Envoi des données de configuration des LEDs
@@ -230,7 +230,7 @@ adb_data<adb_mouse_data> ADBDevices::mouseReadData(bool* error) {
     adb_data<adb_mouse_data> mouseData = {0};
     
     // Envoi d'une commande Talk au registre 0 de la souris
-    adb.writeCommand(CMD_TALK | ADB_ADDRESS(ADDR_MOUSE) | ADB_REGISTER(0));
+    adb.writeCommand(ADBProtocol::CMD_TALK | ADBProtocol::ADDRESS(ADBKey::Address::MOUSE) | ADBProtocol::REGISTER(0));
     adb.waitTLT(true);
     
     // Lecture des données de la souris et mise à jour du statut d'erreur
@@ -242,7 +242,7 @@ adb_data<adb_register3> ADBDevices::deviceReadRegister3(uint8_t addr, bool* erro
     adb_data<adb_register3> reg3 = {0};
     
     // Envoi d'une commande Talk au registre 3 du périphérique
-    adb.writeCommand(CMD_TALK | ADB_ADDRESS(addr) | ADB_REGISTER(3));
+    adb.writeCommand(ADBProtocol::CMD_TALK | ADBProtocol::ADDRESS(ADBKey::Address::KEYBOARD) | ADBProtocol::REGISTER(3));
     adb.waitTLT(true);
     
     // Lecture de la configuration du périphérique
@@ -262,7 +262,7 @@ bool ADBDevices::deviceUpdateRegister3(uint8_t addr, adb_data<adb_register3> new
     reg3.raw = (reg3.raw & ~mask) | (newReg3.raw & mask);
 
     // Envoi d'une commande Listen pour mettre à jour la configuration
-    adb.writeCommand(CMD_LISTEN | ADB_ADDRESS(addr) | ADB_REGISTER(3));
+    adb.writeCommand(ADBProtocol::CMD_LISTEN | ADBProtocol::ADDRESS(ADBKey::Address::KEYBOARD) | ADBProtocol::REGISTER(3));
     adb.waitTLT(false);
     adb.writeDataPacket(reg3.raw, 16);
     

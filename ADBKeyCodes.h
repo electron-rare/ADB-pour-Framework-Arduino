@@ -39,22 +39,4 @@ namespace ADBKey {
     }
 }
 
-// Pour la compatibilité avec le code existant
-#define ADDR_KEYBOARD      ADBKey::Address::KEYBOARD
-#define ADDR_MOUSE         ADBKey::Address::MOUSE
-#define ADB_KEY_CAPS_LOCK  ADBKey::KeyCode::CAPS_LOCK
-#define ADB_KEY_NUM_LOCK   ADBKey::KeyCode::NUM_LOCK
-#define ADB_KEY_POWER_DOWN ADBKey::KeyCode::POWER_DOWN
-#define ADB_KEY_POWER_UP   ADBKey::KeyCode::POWER_UP
-
-// Définitions des modificateurs (compatibilité)
-#define ADB_KEY_LEFT_SHIFT    ADBKey::KeyCode::LEFT_SHIFT
-#define ADB_KEY_RIGHT_SHIFT   ADBKey::KeyCode::RIGHT_SHIFT
-#define ADB_KEY_LEFT_CONTROL  ADBKey::KeyCode::LEFT_CONTROL
-#define ADB_KEY_RIGHT_CONTROL ADBKey::KeyCode::RIGHT_CONTROL
-#define ADB_KEY_LEFT_OPTION   ADBKey::KeyCode::LEFT_OPTION
-#define ADB_KEY_RIGHT_OPTION  ADBKey::KeyCode::RIGHT_OPTION
-#define ADB_KEY_LEFT_COMMAND  ADBKey::KeyCode::LEFT_COMMAND
-#define ADB_KEY_RIGHT_COMMAND ADBKey::KeyCode::RIGHT_COMMAND
-
 #endif // ADB_KEYCODES_H
