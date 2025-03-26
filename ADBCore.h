@@ -13,7 +13,4 @@
 #include "ADB.h"            // Interface principale du protocole ADB
 #include "ADBUtils.h"       // Utilitaires supplémentaires
 
-// Macro pour convertir les valeurs des axes souris (pour la compatibilité avec le code existant)
-#define ADB_MOUSE_CONV_AXIS(val) adbMouseConvertAxis(val)
-
 #endif // ADB_CORE_h
