@@ -256,7 +256,7 @@ bool ADBDevices::deviceUpdateRegister3(uint8_t addr, adb_data<adb_register3> new
     if (*error) return false;
     
     // Attente entre les opérations
-    delay(POLL_DELAY);
+    delay(ADBProtocol::POLL_DELAY);
 
     // Application du masque pour ne modifier que les bits souhaités
     reg3.raw = (reg3.raw & ~mask) | (newReg3.raw & mask);
@@ -267,7 +267,7 @@ bool ADBDevices::deviceUpdateRegister3(uint8_t addr, adb_data<adb_register3> new
     adb.writeDataPacket(reg3.raw, 16);
     
     // Attente entre les opérations
-    delay(POLL_DELAY);
+    delay(ADBProtocol::POLL_DELAY);
 
     // Vérification que la mise à jour a été prise en compte
     reg3 = deviceReadRegister3(addr, error);
