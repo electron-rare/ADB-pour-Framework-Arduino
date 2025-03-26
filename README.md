@@ -146,12 +146,6 @@ La bibliothèque est fournie avec plusieurs exemples pratiques pour Arduino IDE 
 ### Remerciements particuliers
 - **Projet TMK** - Pour la documentation et le travail sur la conversion ADB-USB
 - **Apple Developer Archives** - Pour la documentation technique sur le protocole ADB
-- **Communauté r/VintageApple** - Pour le support et les tests
-
-### Testeurs
-- L'équipe de L'électron rare
-- Utilisateurs du forum STM32duino
-- Membres de la communauté RetroComputing
 
 ## Historique des versions
 
@@ -165,7 +159,6 @@ La bibliothèque est fournie avec plusieurs exemples pratiques pour Arduino IDE 
 - Support complet pour Arduino, ESP32, et Teensy
 - Meilleure gestion de l'alimentation
 - Support pour des périphériques ADB plus exotiques
-- Interface graphique de configuration et diagnostic
 
 ## Licence
 
