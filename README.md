@@ -13,7 +13,7 @@ La bibliothèque ADB est une implémentation complète du protocole Apple Deskto
 
 ## Fonctionnalités clés
 
-- 🔌 **Compatible avec plusieurs plateformes** : STM32 (primaire), Arduino, ESP32, Teensy (en cours de développement)
+- 🔌 **Compatible avec plusieurs plateformes** : STM32, Arduino, ESP32, Teensy (en cours de développement)
 - 🧩 **API unifiée** : même interface de programmation quelle que soit la plateforme
 - ⌨️ **Support complet des claviers ADB** : lecture des touches, gestion des modificateurs, contrôle des LEDs
 - 🖱️ **Support complet des souris ADB** : lecture des mouvements et des boutons
@@ -27,9 +27,9 @@ La bibliothèque ADB est une implémentation complète du protocole Apple Deskto
 | Plateforme | Pin par défaut | Testé sur | Statut |
 |------------|---------------|----------|--------|
 | STM32 (Arduino Core) | PB4 | STM32F103, Bluepill, STM32F401, STM32F411 | ✅ Testé et stable |
-| Arduino AVR | 2 | Uno, Mega | ⚠️ Support préliminaire |
-| ESP32 (Arduino Core) | 21 | ESP32-WROOM, ESP32-WROVER | ⚠️ En développement |
-| Teensy (Arduino Core) | 3 | Teensy 3.2, 4.0 | ⚠️ En développement |
+| ESP32 (Arduino Core) | 21 | ESP32-WROOM, ESP32-WROVER | ✅ Testé et stable |
+| Arduino AVR | 2 | Uno, Mega | ⛔ Non testé |
+| Teensy (Arduino Core) | 3 | Teensy 3.2, 4.0 | ⛔ Non testé |
 | Autres cartes Arduino | 2 | Diverses | ⛔ Non testé |
 
 ## Installation
@@ -151,12 +151,12 @@ La bibliothèque est fournie avec plusieurs exemples pratiques pour Arduino IDE 
 
 - **1.0.0-beta** (Janvier 2025)
   - Version initiale de la bibliothèque
-  - Support complet pour STM32
+  - Support complet pour STM32, ESP32
   - Support préliminaire pour d'autres plateformes
 
 ## À venir
 
-- Support complet pour Arduino, ESP32, et Teensy
+- Support complet pour Arduino, et Teensy
 - Meilleure gestion de l'alimentation
 - Support pour des périphériques ADB plus exotiques
 
