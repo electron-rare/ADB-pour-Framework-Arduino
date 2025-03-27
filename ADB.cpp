@@ -210,13 +210,14 @@ adb_data<adb_kb_keypress> ADBDevices::keyboardReadKeyPress(bool* error) {
     return keyPress;
 }
 
-void ADBDevices::keyboardWriteLEDs(bool scroll, bool caps, bool num) {
+void ADBDevices::keyboardWriteLEDs(bool num, bool caps, bool scroll) {
     adb_data<adb_kb_modifiers> modifiers = {0};
     
     // Configuration des LEDs (la logique est inversée dans le protocole)
-    modifiers.data.led_scroll = !scroll;
-    modifiers.data.led_caps = !caps;
     modifiers.data.led_num = !num;
+    modifiers.data.led_caps = !caps;
+    modifiers.data.led_scroll = !scroll;
+
 
     // Envoi d'une commande Listen au registre 2 du clavier
     adb.writeCommand(ADBProtocol::CMD_LISTEN | ADBProtocol::ADDRESS(ADBKey::Address::KEYBOARD) | ADBProtocol::REGISTER(2));

@@ -187,7 +187,7 @@ public:
      * @param caps État de la LED de verrouillage majuscule
      * @param num État de la LED de verrouillage numérique
      */
-    void keyboardWriteLEDs(bool scroll, bool caps, bool num);
+    void keyboardWriteLEDs(bool num, bool caps, bool scrool);
     
     /**
      * @brief Lecture des données de la souris
