@@ -5,7 +5,7 @@
 ![État](https://img.shields.io/badge/état-Beta-orange)
 ![Framework](https://img.shields.io/badge/framework-Arduino-teal)
 
-> **Note de développement** : Cette bibliothèque est implémentée pour le framework Arduino et actuellement optimisée principalement pour la plateforme STM32. Le support pour d'autres plateformes Arduino est en cours de développement.
+> **Note de développement** : Cette bibliothèque est implémentée pour le framework Arduino et actuellement optimisée principalement pour la plateforme ESP32 et STM32. Le support pour d'autres plateformes Arduino est en cours de développement.
 
 ## Vue d'ensemble
 
